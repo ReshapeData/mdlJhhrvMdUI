@@ -44,17 +44,11 @@ RditemUI_left <- function() {
   res <- shiny::tagList(
 
 
-    tsui::uiTemplate(templateName = '嘉好人工计提基础资料模板'),
+    tsui::uiTemplate(templateName = '基础资料模板表'),
     tsui::mdl_file(id = 'file_expInfo_Rditem',label ='请上传文件' ),
 
-    shiny::actionButton(inputId = 'btn_preview_Rditem',label = '预览'),
+    shiny::actionButton(inputId = 'btn_preview_Rditem',label = '文件预览'),
     shiny::actionButton(inputId = 'btn_Update_Rditem',label = '更新研发项目')
-
-    #shiny::actionButton(inputId = 'btn_deptUpdate',label = '更新部门对照表'),
-
-    #shiny::actionButton(inputId = 'btn_RditemUpdate',label = '更新研发项目'),
-    #shiny::actionButton(inputId = 'btn_workcenterUpdate',label = '更新责任中心'),
-    #shiny::actionButton(inputId = 'btn_rditemUpdate',label = '更新研发项目对照')
 
   )
   return(res)
@@ -71,6 +65,9 @@ RditemUI_left <- function() {
 #' RditemUI_bottom()
 RditemUI_right <- function() {
   res <- shiny::tagList(
+    
+    shiny::actionButton(inputId = 'btn_view_Rditem',label = '研发项目信息查询'),
+    tsui::mdl_download_button(id = 'dl_dataview_Rditem',label = '下载研发项目')
 
 
 
@@ -89,7 +86,10 @@ RditemUI_right <- function() {
 #' RditemUI_bottom()
 RditemUI_bottom <- function() {
   res <- shiny::tagList(
-    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Rditem_resultView',label ='结果显示' ))
+    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Rditem_resultView',label ='结果显示' )),
+    tsui::uiScrollX(
+      tsui::mdl_dataTable(id = 'dl_dataview_Rditem',label ='研发项目查询显示' )
+    )
   )
   return(res)
 

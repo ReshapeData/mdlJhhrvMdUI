@@ -44,17 +44,12 @@ AcctUI_left <- function() {
   res <- shiny::tagList(
 
 
-    tsui::uiTemplate(templateName = '嘉好人工计提基础资料模板'),
+    tsui::uiTemplate(templateName = '基础资料模板表'),
     tsui::mdl_file(id = 'file_expInfo_Acct',label ='请上传文件' ),
 
-    shiny::actionButton(inputId = 'btn_preview_Acct',label = '预览'),
-    shiny::actionButton(inputId = 'btn_Update_Acct',label = '更新科目')
-
-    #shiny::actionButton(inputId = 'btn_deptUpdate',label = '更新部门对照表'),
-
-    #shiny::actionButton(inputId = 'btn_AcctUpdate',label = '更新重分类'),
-    #shiny::actionButton(inputId = 'btn_workcenterUpdate',label = '更新责任中心'),
-    #shiny::actionButton(inputId = 'btn_rditemUpdate',label = '更新研发项目对照')
+    shiny::actionButton(inputId = 'btn_preview_Acct',label = '文件预览'),
+    shiny::actionButton(inputId = 'btn_Update_Acct',label = '更新科目'),
+    
 
   )
   return(res)
@@ -71,6 +66,9 @@ AcctUI_left <- function() {
 #' AcctUI_bottom()
 AcctUI_right <- function() {
   res <- shiny::tagList(
+    shiny::actionButton(inputId = 'btn_view_Acct',label = '科目信息查询'),
+    tsui::mdl_download_button(id = 'dl_dataview_Acct',label = '下载科目')
+    
 
 
 
@@ -89,7 +87,12 @@ AcctUI_right <- function() {
 #' AcctUI_bottom()
 AcctUI_bottom <- function() {
   res <- shiny::tagList(
-    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Acct_resultView',label ='结果显示' ))
+    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Acct_resultView',label ='预览结果显示' )
+                    ),
+    tsui::uiScrollX(
+                    tsui::mdl_dataTable(id = 'dl_dataview_Acct',label ='科目查询显示' )
+    )
+    
   )
   return(res)
 
