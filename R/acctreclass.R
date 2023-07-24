@@ -42,20 +42,14 @@ AcctreclassUI_left <- function() {
 
 
   res <- shiny::tagList(
-    tsui::uiTemplate(templateName = '嘉好人工计提基础资料模板'),
+    tsui::uiTemplate(templateName = '基础资料模板表'),
     tsui::mdl_file(id = 'file_expInfo_Acctreclass',label ='请上传文件' ),
 
 
-    shiny::actionButton(inputId = 'btn_preview_Acctreclass',label = '预览'),
-    br(),
+    shiny::actionButton(inputId = 'btn_preview_Acctreclass',label = '文件预览'),
 
-    shiny::actionButton(inputId = 'btn_Update_Acctreclass',label = '更新重分类')
-
-    #shiny::actionButton(inputId = 'btn_deptUpdate',label = '更新部门对照表'),
-
-    #shiny::actionButton(inputId = 'btn_AcctreclassUpdate',label = '更新重分类'),
-    #shiny::actionButton(inputId = 'btn_workcenterUpdate',label = '更新责任中心'),
-    #shiny::actionButton(inputId = 'btn_rditemUpdate',label = '更新研发项目对照')
+    shiny::actionButton(inputId = 'btn_Update_Acctreclass',label = '更新重分类'),
+    
 
   )
   return(res)
@@ -72,6 +66,10 @@ AcctreclassUI_left <- function() {
 #' AcctreclassUI_bottom()
 AcctreclassUI_right <- function() {
   res <- shiny::tagList(
+    
+    
+    shiny::actionButton(inputId = 'btn_view_Acctreclass',label = '重分类信息查询'),
+    tsui::mdl_download_button(id = 'dl_dataview_Acctreclass',label = '下载重分类')
 
 
 
@@ -90,7 +88,10 @@ AcctreclassUI_right <- function() {
 #' AcctreclassUI_bottom()
 AcctreclassUI_bottom <- function() {
   res <- shiny::tagList(
-    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Acctreclass_resultView',label ='结果显示' ))
+    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Acctreclass_resultView',label ='结果显示' )),
+    tsui::uiScrollX(
+      tsui::mdl_dataTable(id = 'dl_dataview_Acctreclass',label ='重分类查询显示' )
+    )
   )
   return(res)
 

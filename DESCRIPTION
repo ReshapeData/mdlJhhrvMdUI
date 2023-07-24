@@ -11,10 +11,6 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 Collate: 
-    'demo.R'
-    'button.R'
-    'text.R'
-    'date.R'
      'acct.R'
   'acctreclass.R'
   'cosucompany.R'
