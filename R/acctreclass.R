@@ -42,7 +42,7 @@ AcctreclassUI_left <- function() {
 
 
   res <- shiny::tagList(
-    tsui::uiTemplate(templateName = '基础资料模板表'),
+    tsui::uiTemplate(templateName = '03 重分类模板表'),
     tsui::mdl_file(id = 'file_expInfo_Acctreclass',label ='请上传文件' ),
 
 
@@ -69,7 +69,7 @@ AcctreclassUI_right <- function() {
     
     
     shiny::actionButton(inputId = 'btn_view_Acctreclass',label = '重分类信息查询'),
-    tsui::mdl_download_button(id = 'dl_dataview_Acctreclass',label = '下载重分类')
+    tsui::mdl_download_button(id = 'mdlJHmd_Acctreclass_resultView',label = '下载重分类')
 
 
 
@@ -88,10 +88,7 @@ AcctreclassUI_right <- function() {
 #' AcctreclassUI_bottom()
 AcctreclassUI_bottom <- function() {
   res <- shiny::tagList(
-    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Acctreclass_resultView',label ='结果显示' )),
-    tsui::uiScrollX(
-      tsui::mdl_dataTable(id = 'dl_dataview_Acctreclass',label ='重分类查询显示' )
-    )
+    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Acctreclass_resultView',label ='结果显示' ))
   )
   return(res)
 

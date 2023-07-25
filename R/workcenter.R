@@ -44,7 +44,7 @@ WorkcenterUI_left <- function() {
   res <- shiny::tagList(
 
 
-    tsui::uiTemplate(templateName = '基础资料模板表'),
+    tsui::uiTemplate(templateName = '04 责任中心模板表'),
     tsui::mdl_file(id = 'file_expInfo_Workcenter',label ='请上传文件' ),
 
     shiny::actionButton(inputId = 'btn_preview_Workcenter',label = '文件预览'),
@@ -66,7 +66,7 @@ WorkcenterUI_right <- function() {
   res <- shiny::tagList(
     
     shiny::actionButton(inputId = 'btn_view_Workcenter',label = '责任中心信息查询'),
-    tsui::mdl_download_button(id = 'dl_dataview_Workcenter',label = '下载责任中心')
+    tsui::mdl_download_button(id = 'mdlJHmd_Workcenter_resultView',label = '下载责任中心')
 
 
 
@@ -85,10 +85,7 @@ WorkcenterUI_right <- function() {
 #' WorkcenterUI_bottom()
 WorkcenterUI_bottom <- function() {
   res <- shiny::tagList(
-    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Workcenter_resultView',label ='结果显示' )),
-    tsui::uiScrollX(
-      tsui::mdl_dataTable(id = 'dl_dataview_Workcenter',label ='责任中心查询显示' )
-    )
+    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Workcenter_resultView',label ='结果显示' ))
   )
   return(res)
 

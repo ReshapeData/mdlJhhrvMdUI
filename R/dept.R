@@ -44,7 +44,7 @@ DeptUI_left <- function() {
   res <- shiny::tagList(
 
 
-    tsui::uiTemplate(templateName = '基础资料模板表'),
+    tsui::uiTemplate(templateName = '02 部门对照模板表'),
     tsui::mdl_file(id = 'file_expInfo_Dept',label ='请上传文件' ),
 
     shiny::actionButton(inputId = 'btn_preview_Dept',label = '文件预览'),
@@ -67,7 +67,7 @@ DeptUI_right <- function() {
   res <- shiny::tagList(
     
     shiny::actionButton(inputId = 'btn_view_Dept',label = '部门对照信息查询'),
-    tsui::mdl_download_button(id = 'dl_dataview_Dept',label = '下载部门对照')
+    tsui::mdl_download_button(id = 'mdlJHmd_Dept_resultView',label = '下载部门对照')
 
 
 
@@ -86,10 +86,7 @@ DeptUI_right <- function() {
 #' DeptUI_bottom()
 DeptUI_bottom <- function() {
   res <- shiny::tagList(
-    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Dept_resultView',label ='结果显示' )),
-    tsui::uiScrollX(
-      tsui::mdl_dataTable(id = 'dl_dataview_Dept',label ='部门对照查询显示' )
-    )
+    tsui::uiScrollX(tsui::mdl_dataTable(id = 'mdlJHmd_Dept_resultView',label ='结果显示' ))
   )
   return(res)
 
